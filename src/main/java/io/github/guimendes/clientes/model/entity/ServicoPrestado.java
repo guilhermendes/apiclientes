@@ -1,17 +1,17 @@
 package io.github.guimendes.clientes.model.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
-import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Objects;
+import java.time.LocalDate;
 
 @Entity
 @Data
 
-public class Servico {
+public class ServicoPrestado {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,5 +27,8 @@ public class Servico {
     @Column
     private BigDecimal valor;
 
+    @Column
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate data;
 
 }
